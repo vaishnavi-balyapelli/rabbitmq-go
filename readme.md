@@ -52,5 +52,7 @@ This works the same way but doesn't rely on a channel.
 
 Summary
 ✅ forever is used to keep the consumer running.
+
 ✅ The main function blocks on <-forever>, preventing the program from exiting.
+
 ✅ Without it, the consumer would start but exit immediately.
