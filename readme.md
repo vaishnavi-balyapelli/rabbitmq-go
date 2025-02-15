@@ -31,24 +31,23 @@ RabbitMQ is a powerful message broker widely used in distributed systems. Let's 
 
 ## **How Does It Work?**  
 
-```go
-forever := make(chan bool) // Create an unbuffered channel
+
+`forever := make(chan bool) // Create an unbuffered channel`
 
 ## **This channel is never written to.**  
 *The main function blocks on `<-forever>`, meaning it waits forever.*
 
-```go
-<-forever // Blocks the main function
+
+`<-forever // Blocks the main function`
 
 Since no Goroutine ever sends data into forever, this line will block execution indefinitely, keeping the consumer running.
 
 Alternative Approach (Using select)
+
 Another way to block the main function is:
 
-go
-Copy
-Edit
-select {} // Blocks forever
+`select {} // Blocks forever`
+
 This works the same way but doesn't rely on a channel.
 
 Summary
